@@ -130,7 +130,7 @@ export default function LandingPage() {
             </nav>
 
             {/* Hero Section */}
-            <section className="relative min-h-[600px] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 md:px-24 py-32 max-w-7xl mx-auto w-full overflow-hidden">
+            <section className="relative min-h-[600px] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 md:px-24 pt-24 pb-10 max-w-7xl mx-auto w-full overflow-hidden">
                 <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#21c4e7] via-[#dbe3e6] to-[#4d5358] opacity-75 animate-gradientBackground"></div>
 
                 <div className="max-w-xl z-10 flex flex-col">
@@ -188,25 +188,73 @@ export default function LandingPage() {
             {/* Features Section */}
             <section
                 id="features"
-                className="py-20 px-6 md:px-24 max-w-7xl mx-auto w-full grid md:grid-cols-4 gap-8"
+                className="py-6 px-6 md:px-24 max-w-7xl mx-auto w-full grid md:grid-cols-4 gap-6"
             >
-                {features.map(({ icon: Icon, title, description, gradient }, idx) => (
+                {features.map(({ icon: Icon, title, description }, idx) => (
                     <motion.div
                         key={idx}
-                        whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(13, 65, 77, 0.7)" }}
-                        className="bg-gradient-to-br from-[#1f2937] to-[#374151] rounded-3xl p-8 flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-gradient-dark-blue transition-all"
+                        whileHover={{ scale: 1.05, translateY: -3 }}
+                        className="relative rounded-[20px] p-[2px] bg-gradient-to-r from-[#21c4e7] via-[#118c8d] to-[#21c4e7] 
+                bg-[length:300%_300%] animate-borderFlow hover:shadow-[0_0_20px_#21c4e7]"
+                        style={{ height: "260px" }}
                     >
-                        <motion.div
-                            whileHover={{ rotate: 15, scale: 1.15 }}
-                            className={`w-16 h-16 mb-6 rounded-full bg-gradient-to-r ${gradient} flex items-center justify-center text-white shadow-lg`}
-                        >
-                            <Icon className="text-3xl" />
-                        </motion.div>
-                        <h3 className="text-xl font-bold text-gradient-steel-grey-dark mb-3">{title}</h3>
-                        <p className="text-dark-solid">{description}</p>
+                        {/* Inner white card */}
+                        <div className="rounded-[20px] bg-white/90 shadow-lg h-full flex flex-col items-center justify-center text-center p-4">
+                            {/* Icon */}
+                            <motion.div
+                                className="w-12 h-12 mb-3 rounded-full flex items-center justify-center bg-[#21c4e7] shadow-lg animate-iconPulse"
+                                whileHover={{ scale: 1.1 }}
+                            >
+                                <Icon className="text-2xl text-white" />
+                            </motion.div>
+
+                            <h3 className="text-lg font-bold text-[#153e75] mb-2">{title}</h3>
+                            <p className="text-[#222f3e] text-sm leading-snug">{description}</p>
+                        </div>
                     </motion.div>
+
+
                 ))}
+
+                {/* CSS animations */}
+                <style jsx>{`
+    @keyframes borderFlow {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    .animate-borderFlow {
+        animation: borderFlow 4s linear infinite;
+    }
+
+    @keyframes iconPulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0px rgba(33, 196, 231, 0.4);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(33, 196, 231, 0.6);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0px rgba(33, 196, 231, 0.4);
+        }
+    }
+    .animate-iconPulse {
+        animation: iconPulse 2s infinite ease-in-out;
+        }
+    `}</style>
             </section>
+
+
+
 
             <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
