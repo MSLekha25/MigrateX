@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class MigrationJob(models.Model):
     source_code = models.TextField()
