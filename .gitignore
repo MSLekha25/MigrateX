@@ -1,0 +1,34 @@
+# Django
+backend/*.pyc
+backend/__pycache__/
+backend/db.sqlite3
+backend/.env
+backend/*.log
+backend/*.pot
+backend/*.py[cod]
+backend/*.sqlite3
+backend/media/
+backend/staticfiles/
+backend/local_settings.py
+
+# React
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.env.local
+frontend/.env.development
+frontend/.env.test
+frontend/.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Python virtualenv
+.venv/
