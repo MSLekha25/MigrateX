@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import { FaRobot, FaLightbulb, FaCogs, FaPlug, FaUpload, FaCog, FaDownload } from "react-icons/fa";
@@ -160,87 +160,63 @@ export default function LandingPage() {
             {/* How It Works Section */}
             <section
                 id="how-it-works"
-                className="scroll-mt-20 py-16 px-4 md:px-24 min-h-[560px] max-w-7xl mx-auto w-full
-        bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl border border-[#21c4e7]/10 mt-20 relative overflow-visible"
+                className="scroll-mt-20 py-12 px-2 md:px-10 max-w-7xl mx-auto w-full bg-transparent rounded-2xl mt-20 relative select-none"
             >
-                {/* Flowline background: Only visible on desktop */}
-                <div className="absolute top-28 left-1/2 -translate-x-1/2 z-0 hidden md:block w-[70%] h-28">
-                    <svg width="100%" height="80px">
-                        <polyline
-                            points="0,40 28%,40 33%,10 40%,40 67%,40 100%,40"
-                            fill="none"
-                            stroke="#21c4e7"
-                            strokeWidth="6"
-                            opacity="0.12"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                </div>
-
-                <h2 className="text-4xl font-extrabold text-center mb-16 text-gradient-hero">
+                <p className="text-center text-slate-200 text-base md:text-lg mb-3 font-medium">
+                    Migrate your entire codebase in 4 simple steps — fast, accurate, and AI-powered.
+                </p>
+                <h2 className="text-4xl font-extrabold text-center mb-10 text-gradient-hero">
                     How It Works
                 </h2>
-                <div className="flex flex-col md:flex-row gap-14 justify-center">
-                    {howItWorksSteps.map(({ icon: Icon, title, main, details, lottie }, idx) => (
-                        <motion.div
-                            key={title}
-                            initial={{ opacity: 0, y: 60 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.7, delay: idx * 0.17 }}
-                            whileHover={{
-                                scale: 1.06,
-                                boxShadow: "0 4px 24px 0px rgba(33, 196, 231, 0.25)",
-                                borderColor: "#21c4e7"
-                            }}
-                            className="relative max-w-xs flex flex-col text-center rounded-2xl border-2 border-transparent 
-                    bg-[#1f2d3dcc] backdrop-blur-[2px] p-7 shadow-2xl"
-                            style={{ marginTop: idx % 2 ? '2rem' : 0 }}
-                        >
-                            {/* Steps number badge */}
-                            <div
-                                className="absolute -top-8 left-1/2 -translate-x-1/2 z-10 flex items-center justify-center
-                        w-12 h-12 rounded-full bg-gradient-to-br from-[#21c4e7] via-[#118c8d] to-[#4d5358] shadow-lg
-                        font-bold text-lg text-white border-4 border-white/40"
+                <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-7 relative z-10">
+
+                    {howItWorksSteps.map(({ title, main, details, lottie }, idx) => (
+                        <React.Fragment key={title}>
+                            <motion.div
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.7,
+                                    delay: idx * 0.18,
+                                    type: "spring",
+                                    bounce: 0.24,
+                                }}
+                                className="relative w-72 bg-[#182534cc] backdrop-blur-md border border-cyan-400/15 rounded-2xl shadow-xl py-8 px-6 flex flex-col items-center transition-all duration-300"
                             >
-                                {idx + 1}
-                            </div>
-                            {/* Animated icons/Lottie */}
-                            <div className="mb-5 mt-7 flex justify-center items-center w-20 h-20 rounded-full bg-cyan-200/20 drop-shadow-lg">
-                            <Lottie animationData={lottie} loop autoplay className="w-16 h-16" />
-                            </div>
-                            <h3 className="text-xl font-extrabold text-white mb-2">{title}</h3>
-                            <div className="text-base font-semibold text-cyan-200 mb-2">{main}</div>
-                            <div className="text-sm text-slate-300">{details}</div>
-                        </motion.div>
+                                <div
+                                    className="absolute -top-6 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-[#21c4e7] via-[#118c8d] to-[#4d5358] text-white font-bold text-lg flex items-center justify-center shadow-lg border-2 border-white/40"
+                                >
+                                    {idx + 1}
+                                </div>
+                                <div className="mt-6 mb-4 flex items-center justify-center w-20 h-20 rounded-full bg-cyan-300/15 shadow-xl">
+                                    <Lottie animationData={lottie} loop autoplay className="w-16 h-16" />
+                                </div>
+                                <h3 className="text-xl font-extrabold text-white mb-2 break-words w-full">{title}</h3>
+                                <div className="text-base font-semibold text-cyan-100 mb-2 break-words w-full">{main}</div>
+                                <div className="text-sm text-slate-300 break-words w-full">{details}</div>
+                            </motion.div>
+                            {/* Arrow SVG */}
+                            {idx < howItWorksSteps.length - 1 && (
+                                <div className="hidden md:flex items-center h-full">
+                                    <svg width="50" height="28" fill="none">
+                                        <path d="M8 14 H42" stroke="#21c4e7" strokeWidth="3" strokeLinecap="round" />
+                                        <polygon points="42,8 50,14 42,20" fill="#21c4e7" />
+                                    </svg>
+                                </div>
+                            )}
+                        </React.Fragment>
                     ))}
+
                 </div>
-
-                {/* CTA: Try Now button under steps */}
-                {/* <div className="w-full flex justify-center mt-14">
-                    <a
-                        href="#start-migrating"
-                        className="inline-block px-8 py-4 bg-gradient-to-r from-[#21c4e7] via-[#118c8d] to-[#4d5358] rounded-full font-extrabold text-white shadow-lg text-lg hover:scale-105 transition focus:outline-none"
-                    >
-                        Try Now &rarr;
-                    </a>
-                </div> */}
-
                 <style jsx>{`
-        .text-gradient-hero {
-            background: linear-gradient(90deg, #21c4e7 0%, #118c8d 50%, #4d5358 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .text-gradient-card {
-            background: linear-gradient(90deg, #e9f8fe 35%, #21c4e7 70%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        `}</style>
-            </section>
-
-
+    .text-gradient-hero {
+        background: linear-gradient(90deg, #21c4e7 0%, #118c8d 50%, #4d5358 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    `}</style>
+        </section>
 
 
             {/* Animations */}
