@@ -162,12 +162,12 @@ export default function LandingPage() {
                 id="how-it-works"
                 className="scroll-mt-20 py-12 px-2 md:px-10 max-w-7xl mx-auto w-full bg-transparent rounded-2xl mt-20 relative select-none"
             >
-                <p className="text-center text-slate-200 text-base md:text-lg mb-3 font-medium">
-                    Migrate your entire codebase in 4 simple steps — fast, accurate, and AI-powered.
-                </p>
                 <h2 className="text-4xl font-extrabold text-center mb-10 text-gradient-hero">
                     How It Works
                 </h2>
+                <p className="text-center text-slate-200 text-base md:text-lg mb-3 font-medium">
+                    Migrate your entire codebase in 4 simple steps — fast, accurate, and AI-powered.
+                </p>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-7 relative z-10">
 
                     {howItWorksSteps.map(({ title, main, details, lottie }, idx) => (
@@ -182,20 +182,23 @@ export default function LandingPage() {
                                     type: "spring",
                                     bounce: 0.24,
                                 }}
-                                className="relative w-72 bg-[#182534cc] backdrop-blur-md border border-cyan-400/15 rounded-2xl shadow-xl py-8 px-6 flex flex-col items-center transition-all duration-300"
+                                className="relative w-[28rem] min-h-[200px] bg-[#182534cc] backdrop-blur-md border border-cyan-400/15 rounded-2xl shadow-xl py-5 px-10 flex flex-col items-center transition-all duration-300"
                             >
                                 <div
                                     className="absolute -top-6 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-[#21c4e7] via-[#118c8d] to-[#4d5358] text-white font-bold text-lg flex items-center justify-center shadow-lg border-2 border-white/40"
                                 >
                                     {idx + 1}
                                 </div>
-                                <div className="mt-6 mb-4 flex items-center justify-center w-20 h-20 rounded-full bg-cyan-300/15 shadow-xl">
-                                    <Lottie animationData={lottie} loop autoplay className="w-16 h-16" />
+                                <div className="mt-4 mb-3 flex items-center justify-center w-24 h-24 rounded-full bg-cyan-300/15 shadow-xl">
+                                    <Lottie animationData={lottie} loop autoplay className="w-20 h-20" />
                                 </div>
-                                <h3 className="text-xl font-extrabold text-white mb-2 break-words w-full">{title}</h3>
-                                <div className="text-base font-semibold text-cyan-100 mb-2 break-words w-full">{main}</div>
-                                <div className="text-sm text-slate-300 break-words w-full">{details}</div>
+                                <div className="flex flex-col items-center w-full text-center">
+                                    <h3 className="text-xl font-extrabold text-white mb-1 break-words w-full">{title}</h3>
+                                    <div className="text-base font-semibold text-cyan-100 mb-1 break-words w-full">{main}</div>
+                                    <div className="text-sm text-slate-300 break-words w-full">{details}</div>
+                                </div>
                             </motion.div>
+                            
                             {/* Arrow SVG */}
                             {idx < howItWorksSteps.length - 1 && (
                                 <div className="hidden md:flex items-center h-full">
