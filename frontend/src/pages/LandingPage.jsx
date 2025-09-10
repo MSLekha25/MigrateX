@@ -20,25 +20,21 @@ const features = [
 const howItWorksSteps = [
     {
         title: "Upload Your Code",
-        main: "Connect or upload your project",
         details: "Supports GitHub, GitLab, Bitbucket, or direct local upload.",
         lottie: uploadAnim
     },
     {
         title: "AI Processes & Optimizes",
-        main: "Let AI transform your codebase",
         details: "Our AI handles framework migration, dependency mapping, and deep optimizations.",
         lottie: gearAnim
     },
     {
         title: "Preview & Validate",
-        main: "See proposed changes before download",
         details: "Review diffs and validate settings before moving forward.",
         lottie: previewAnim
     },
     {
         title: "Download Your New Stack",
-        main: "Get a ready-to-use setup",
         details: "Receive your fully compatible project & instant documentation.",
         lottie: downloadAnim
     },
@@ -162,11 +158,11 @@ export default function LandingPage() {
                 id="how-it-works"
                 className="scroll-mt-20 py-12 px-2 md:px-10 max-w-7xl mx-auto w-full bg-transparent rounded-2xl mt-20 relative select-none"
             >
-                <h2 className="text-4xl font-extrabold text-center mb-10 text-gradient-hero">
+                <h2 className="text-4xl font-extrabold text-center mb-6" style={{ color: '#22384a' }}>
                     How It Works
                 </h2>
-                <p className="text-center text-slate-200 text-base md:text-lg mb-3 font-medium">
-                    Migrate your entire codebase in 4 simple steps — fast, accurate, and AI-powered.
+                <p className="text-center text-lg md:text-xl mb-10 font-semibold" style={{ color: '#22384a' }}>
+                    Migrate your entire codebase in 4 simple steps — <span className="font-bold" style={{ color: '#22384a' }}>fast, accurate, and AI-powered.</span>
                 </p>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-7 relative z-10">
 
@@ -182,29 +178,24 @@ export default function LandingPage() {
                                     type: "spring",
                                     bounce: 0.24,
                                 }}
-                                className="relative w-[28rem] min-h-[200px] bg-[#182534cc] backdrop-blur-md border border-cyan-400/15 rounded-2xl shadow-xl py-5 px-10 flex flex-col items-center transition-all duration-300"
+                                className="relative w-[24rem] h-[24rem] max-w-full bg-gradient-to-br from-[#22384a] via-[#1a2a36] to-[#22384a] border-2 border-cyan-400/30 rounded-3xl shadow-2xl py-8 px-8 flex flex-col items-center justify-between transition-all duration-300 hover:scale-[1.025] hover:shadow-cyan-400/30 group"
                             >
-                                <div
-                                    className="absolute -top-6 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-[#21c4e7] via-[#118c8d] to-[#4d5358] text-white font-bold text-lg flex items-center justify-center shadow-lg border-2 border-white/40"
-                                >
-                                    {idx + 1}
-                                </div>
-                                <div className="mt-4 mb-3 flex items-center justify-center w-24 h-24 rounded-full bg-cyan-300/15 shadow-xl">
+                                <div className="absolute -top-7 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-700 text-white font-bold text-xl flex items-center justify-center shadow-lg border-4 border-white/30 group-hover:scale-110 transition-transform">{idx + 1}</div>
+                                <div className="mt-10 mb-4 flex items-center justify-center w-28 h-28 rounded-full bg-cyan-300/10 shadow-xl group-hover:bg-cyan-400/20 transition-colors">
                                     <Lottie animationData={lottie} loop autoplay className="w-20 h-20" />
                                 </div>
-                                <div className="flex flex-col items-center w-full text-center">
-                                    <h3 className="text-xl font-extrabold text-white mb-1 break-words w-full">{title}</h3>
-                                    <div className="text-base font-semibold text-cyan-100 mb-1 break-words w-full">{main}</div>
-                                    <div className="text-sm text-slate-300 break-words w-full">{details}</div>
+                                <div className="flex flex-col items-center w-full text-center flex-1 justify-center">
+                                    <h3 className="text-2xl font-extrabold text-white mb-2 break-words w-full max-w-full drop-shadow-lg">{title}</h3>
+                                    <div className="text-base font-bold text-cyan-200 mb-1 break-words w-full max-w-full">{main}</div>
+                                    <div className="text-sm text-slate-200 break-words w-full max-w-full leading-snug font-medium">{details}</div>
                                 </div>
                             </motion.div>
-                            
                             {/* Arrow SVG */}
                             {idx < howItWorksSteps.length - 1 && (
                                 <div className="hidden md:flex items-center h-full">
                                     <svg width="50" height="28" fill="none">
-                                        <path d="M8 14 H42" stroke="#21c4e7" strokeWidth="3" strokeLinecap="round" />
-                                        <polygon points="42,8 50,14 42,20" fill="#21c4e7" />
+                                        <path d="M8 14 H42" stroke="#22384a" strokeWidth="3" strokeLinecap="round" />
+                                        <polygon points="42,8 50,14 42,20" fill="#22384a" />
                                     </svg>
                                 </div>
                             )}
